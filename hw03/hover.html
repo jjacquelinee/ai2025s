@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Scatter Plot SSIM vs LPIPS</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        #popupGambar {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            text-align: center;
+            padding: 4px;
+        }
+        .axis-label {
+            font-size: 12px;
+            fill: #000;
+        }
+    </style>
+</head>
+<body>
+
+<div id="popupGambar"></div>
+
+<script>
+    const margin = {top: 20, right: 30, bottom: 40, left: 60},
+          width = 860 - margin.left - margin.right,
+          height = 460 - margin.top - margin.bottom;
+
+    const svg = d3.select("body")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const popup = d3.select("#popupGambar");
+
+    d3.csv("zhong.csv").then(function(data) {
+        const dataValid = data.filter(d =>
+            d.SSIM >= 0 && d.SSIM <= 1 && d.LPIPS >= 0 && d.LPIPS <= 1
+        );
+
+        const x = d3.scaleLinear().domain([0, 1]).range([0, width]);
+        const y = d3.scaleLinear().domain([0, 1]).range([height, 0]);
+
+        svg.append("g")
+            .attr("transform", `translate(0,${height})`)
+            .call(d3.axisBottom(x))
+          .append("text")
+            .attr("x", width)
+            .attr("y", 30)
+            .attr("fill", "#000")
+            .style("text-anchor", "end")
+            .text("SSIM");
+
+        svg.append("g")
+            .call(d3.axisLeft(y))
+          .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", -40)
+            .attr("x", -10)
+            .attr("dy", ".71em")
+            .attr("fill", "#000")
+            .style("text-anchor", "end")
+            .text("LPIPS");
+
+        svg.selectAll("circle")
+            .data(dataValid)
+            .enter()
+            .append("circle")
+            .attr("cx", d => x(d.SSIM))
+            .attr("cy", d => y(d.LPIPS))
+            .attr("r", 6)
+            .style("fill", "#4CAF50")
+            .on("mouseover", function(event, d) {
+                popup.html(`<img src="word/${d.Student}.png" width="120" height="120"><br>${d.Student}`)
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 60) + "px")
+                    .style("opacity", 1);
+            })
+            .on("mouseout", () => popup.style("opacity", 0));
+
+        svg.selectAll(".label")
+            .data(dataValid)
+            .enter()
+            .append("text")
+            .attr("x", d => x(d.SSIM) + 8)
+            .attr("y", d => y(d.LPIPS) - 8)
+            .text(d => d.Student)
+            .attr("font-size", "11px")
+            .attr("fill", "black");
+    });
+</script>
+
+</body>
+</html>
