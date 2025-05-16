@@ -134,14 +134,14 @@
 
   <!-- ---------------------------------------------- -->
   <div class="row hw12 toprow">
-    <div class="col twenty"><a href="../hw00/">00</a></div>
-    <div class="col twenty"><a href="../hw01/">01</a></div>
-    <div class="col twenty"><a href="../hw02/">02</a></div>
-    <div class="col twenty"><a href="../hw03/">03</a></div>
-    <div class="col twenty"><a href="../hw04/">04</a></div>
-    <div class="col twenty"><a href="../hw05/">05</a></div>
-    <div class="col twenty"><a href="../hw06/">06</a></div>
-    <div class="col twenty"><a href="../hw07/">07</a></div>
+    <div class="col twenty"><a href="../hw00/index.html">00</a></div>
+    <div class="col twenty"><a href="../hw01/index.html">01</a></div>
+    <div class="col twenty"><a href="../hw02/index.html">02</a></div>
+    <div class="col twenty"><a href="../hw03/index.html">03</a></div>
+    <div class="col twenty"><a href="../hw04/index.html">04</a></div>
+    <div class="col twenty"><a href="../hw05/index.html">05</a></div>
+    <div class="col twenty"><a href="../hw06/index.html">06</a></div>
+    <div class="col twenty"><a href="../hw07/index.html">07</a></div>
   </div>
 
   <!-- ------------------------------------------------>
@@ -154,11 +154,7 @@
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      今天使用 ComfyUI 的過程讓我對圖像生成流程有了更深入的理解。從模型選擇、LoRA 套用、prompt 調整，
-      到圖像輸出，每一步都能清楚掌握控制點，十分有彈性。我嘗試調整角色姿勢、表情與服裝細節，
-      也學會使用多個 LoRA 疊加來強化風格效果。同時，透過設定 seed 與負面提示，有效避免了手部畸形與背景人物干擾。
-      雖然初期遇到節點缺失與模型讀取錯誤，但逐步排查後也順利解決。整體來說，ComfyUI 的模組化設計非常適合進階使用者，
-      是深入探索 AI 繪圖不可或缺的工具。
+      這次的作業 HW04 相較於之前的作業來說，無論是在概念還是實作方面都覺得比較簡單。不過，有一件事讓人覺得有點麻煩，就是當與 Pinggy 的連線逾時（timeout）時，我必須從頭重新開始。這樣不僅耗費時間，也降低了完成作業的效率。雖然整體來說這次的作業不算困難，但這個問題確實讓整個操作過程變得有些不太方便。
     </div>
   </div>
 
@@ -203,7 +199,7 @@
     <div class="col-md-12 twenty">    
       <figure>
         <figcaption>ComfyUI+工作流</figcaption>
-            <img src="ComfyUI.png" width="100%"/>
+            <img src="工作流.jpg" width="100%"/>
         </figure>
     </div>
   </div>
@@ -213,14 +209,11 @@
     <div class="col-md-12 twenty"> 
       <figure>
         <figcaption>完成芙莉蓮Checkpoint、LoRA文生圖</figcaption>
-        <a href="https://civitai.com/models/827184/wai-nsfw-illustrious-sdxl">Checkpoint連結</a>
+        <a href="https://civitai.com/models/1188071?modelVersionId=1337429">Checkpoint連結</a>
         <br>
-        <a href="https://civitai.com/models/1377820/add-micro-details-concept-illustrious-pony?modelVersionId=1732142">LoRA-1連結</a>
-        <br>
-        <a href="https://civitai.com/models/1265495/kanikumitoi-or-shiiros-styles?modelVersionId=1427201">LoRA-2連結</a>
-        <p>1920 * 1080</p>
-        <p>LoRA1 Strength : 1.0</p>
-        <p>LoRA2 Strength : 1.0</p>
+        <a href="https://civitai.com/models/1209474/a4-test?modelVersionId=1373925">LoRA連結</a>
+        <p>1344 * 768</p>
+        <p>LoRA Strength : 1.0</p>
         <p>positive : masterpiece, best quality, high score, great score, absurdres, pointy ears, 1girl, frieren, sousou no frieren, long hair, 1boy, flower, head wreath, smile, petals, earrings, jewelry, shirt, elf, pink flower, looking at another, outdoors, blue eyes, upper body, long sleeves, striped shirt, striped, sky, solo focus, closed mouth, white hair, falling petals, <lora:mix-a4-v2:1>
         </p>
         <p>negative : lowres, bad anatomy, bad hands, text, error, missing finger, extra digits, fewer digits, cropped, worst quality, low quality, low score, bad score, average score, signature, watermark, username, blurry
@@ -235,17 +228,17 @@
     <div class="col-md-12 twenty">    
       <figure>
         <figcaption>替換Ckeckpoint、LoRA完成辛梅爾文生圖</figcaption>
-        <a href="https://civitai.com/models/140272?modelVersionId=1697082">Checkpoint連結</a>
+        <a href="https://civitai.com/models/820208/obsession-illustrious-xl">Checkpoint連結</a>
         <br>
-        <a href="https://civitai.com/models/1377820/add-micro-details-concept-illustrious-pony?modelVersionId=1732142">LoRA-1連結</a>
+        <a href="https://civitai.com/models/1204563?modelVersionId=1356500">LoRA連結1</a>
         <br>
-        <a href="https://civitai.com/models/510261/spo-sdxl4k-p10eplorawebui?modelVersionId=567119">LoRA-2連結</a>
-        <p>1080 * 1920</p>
-        <p>LoRA1 Strength : 1.0</p>
-        <p>LoRA2 Strength : 1.0</p>
+        <a href="https://civitai.com/models/1201355/r754496-or-shiiros-styles-or-niji">LoRA連結2</a>
+        <p>1024 * 1280</p>
+        <p>LoRA1 Strength : 0.5</p>
+        <p>LoRA2 Strength : 0.45</p>
         <p>positive : r17329_illu, xxx667_illu, very awa, anime screencap, masterpiece,best quality,1boy, 1girl, frieren, himmel \(sousou no frieren\), outdoors, upper body, eye contact, light blonde hair, cape, capelet, earrings, dappled sunlight, day, hand on another&#039;s head, kesyeru, sousou no frieren, <lora:r17329_illu-000015:0.45>, <lora:XXX477-000016:0.5>
         </p>
-        <p>negative : nsfw,lowres,bad anatomy,bad hands,text,error,missing fingers,extra digit,fewer digits,cropped,worst quality,low quality,normal quality,jpeg artifacts,signature,watermark,username,blurry,artist name
+        <p>negative : lowres, bad anatomy, bad hands, text, error, missing finger, extra digits, fewer digits, cropped, worst quality, low quality, low score, bad score, average score, signature, watermark, username, blurry
         </p>
         <img src="pic2.png" width="100%"/>
       </figure>
